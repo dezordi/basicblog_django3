@@ -15,6 +15,6 @@ class PostAdmin(admin.ModelAdmin): #configuring the structure of post informatio
 
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
-    list_display = ('name','email','post','created','active')
+    list_display = ('nome','email','post','created','active')
     list_filter = ('active','created','updated')
-    search_fields = ('name','email','body')
+    search_fields = ('nome','email','texto')

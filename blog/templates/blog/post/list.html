@@ -6,10 +6,9 @@ created with urlpatterns on blog/urls.py that call the function post_detail pres
 {% block title %} Blog de Teste {% endblock %}
 
 {% block content %}
-
-    <h1>Blog de Teste</h1>
+    <h1>MicrobiomeBlog</h1>
 {% if tag %}
-    <h2>Posts tagged with "{{tag.name }}"</h2>
+    <h2>Posts com a tag "{{tag.name }}"</h2>
 {% endif %}
 {% for post in posts %}
     <h2>
@@ -18,7 +17,7 @@ created with urlpatterns on blog/urls.py that call the function post_detail pres
         </a>
     </h2>
 <p class="date">
-    Published {{ post.publish }} by {{ post.author }} about {{post.tags.all|join:", "}} with last modification {{post.updated}}
+    Publicado em {{ post.publish }} por {{ post.author }} sobre {{post.tags.all|join:", "}} com a última modificação em {{post.updated}}
 </p>
     {{post.body|truncatewords:40|linebreaks}}
 <p class="tags">

@@ -7,7 +7,7 @@
 	<h1>{{ post.title  }}</h1>
 	
 <p class="date">
-    Published {{ post.publish }} by {{ post.author }} about {{post.tags.all|join:", "}} with last modification {{post.updated}}
+    Publicado em {{ post.publish }} por {{ post.author }} sobre {{post.tags.all|join:", "}} com a última modificação em {{post.updated}}
 </p>
 {{post.body|linebreaks}}
 <p class="tags"> Tags: {{post.tags.all|join:", "}}</p>
@@ -22,23 +22,23 @@ Não tem posts similares
 {% endfor %}
 {% with comments.count as total_comments %}
 <h2>
-    {{ total_comments }} comment {{ total_comments|pluralize }}
+    {{ total_comments }} Comentário {{ total_comments|pluralize }}
 </h2>
 {% endwith %}
 {% for comment in comments %}
 <div class="comment">
     <p class="info">
-        Comment {{ forloop.counter }} by {{ comment.name }} {{ comment.created }}
+        Comment {{ forloop.counter }} by {{ comment.nome }} {{ comment.created }}
     </p>
     {{ comment.body|linebreaks }}
 </div>
 {% empty %}
-<p>There are no comments yet.</p>
+<p>Essa postagem ainda não tem comentários.</p>
 {% endfor %}
 {% if new_comment %}
-<h2>Your Comment has been added</h2>
+<h2>Seu comentário foi adicionado</h2>
 {% else %}
- <h2>Add a new Comment</h2>
+ <h2>Adicione um novo comentário</h2>
 <form method="post">
     {{ comment_form.as_p }}
     {% csrf_token %}
