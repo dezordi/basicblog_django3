@@ -1,11 +1,14 @@
-{% load static %}
+{% load static %} 
+<!--
+This HTML file creates the base html template that will be called in others html files.
+All information with {} represents variables or commands that are created by django scripts and are renderized on HTML file
+-->
 <html lang="pt-br">
 <head>
 	<meta charset="utf-8"/>
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
 	<title>{% block title %}{% endblock %}</title>
 	<link href="{% static "css/blog.css" %}" rel="stylesheet">
-	<script src="scripts/seu-script.js"></script>
 </head>
 <body>
 <div id="content">

@@ -1,5 +1,8 @@
 {% extends "blog/base.html" %}
-
+<!--
+This HTML file call the base html template, and show the information of posts published in our blog, showing the title linked to absolute url, that is
+created with urlpatterns on blog/urls.py that call the function post_detail present on blog/views.py and formats to show only 40 words
+-->
 {% block title %} Blog de Teste {% endblock %}
 
 {% block content %}
@@ -15,6 +18,7 @@
 <p class="date">
     Published {{ post.publish }} by {{ post.author }}
 </p>
-{{post.body|truncatewords:30|linebreaks}}
+{{post.body|truncatewords:40|linebreaks}}
 {% endfor %}
+{% include "pagination.html" with page=posts %}
 {% endblock %}
