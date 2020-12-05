@@ -3,10 +3,10 @@
 This HTML file call the base html template, and show the information of posts published in our blog, showing the title linked to absolute url, that is
 created with urlpatterns on blog/urls.py that call the function post_detail present on blog/views.py and formats to show only 40 words
 -->
-{% block title %} Blog de Teste {% endblock %}
+{% block title %} MicrobiomeBlog - Posts {% endblock %}
 
 {% block content %}
-    <h1>MicrobiomeBlog</h1>
+    <h1>Postagens Recentes</h1>
 {% if tag %}
     <h2>Posts com a tag "{{tag.name }}"</h2>
 {% endif %}
