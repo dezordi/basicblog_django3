@@ -3,6 +3,7 @@ from .models import Post, Comment
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views.generic import ListView
 from .forms import CommentForm
+from taggit.models import Tag
 
 class PostListView(ListView):
     queryset = Post.published.all()
@@ -10,8 +11,12 @@ class PostListView(ListView):
     paginate_by = 5
     template_name = 'blog/post/list.html'
 
-def post_list(request): #will get all posts that have the 'published' status
+def post_list(request,tag_slug=None): #will get all posts that have the 'published' status
     object_list = Post.published.all()
+    tag = None
+    if tag_slug:
+        tag = get_object_or_404(Tag,slug=tag_slug)
+        object_list = object_list.filter(tags__in=[tag])
     paginator = Paginator(object_list, 5) # 5 posts will be showed in each page
     page = request.GET.get('page') # get current page number
     try:
@@ -21,7 +26,7 @@ def post_list(request): #will get all posts that have the 'published' status
     except EmptyPage:
         posts = paginator.page(paginator.num_pages)
 
-    return render(request,'blog/post/list.html', {'page':page,'posts':posts}) #and return the posts in the html page
+    return render(request,'blog/post/list.html', {'page':page,'posts':posts,'tag':tag}) #and return the posts in the html page
 
 #Showing a single post
 def post_detail(request,year,month,day,post):
