@@ -20,5 +20,5 @@ created with urlpatterns on blog/urls.py that call the function post_detail pres
 </p>
 {{post.body|truncatewords:40|linebreaks}}
 {% endfor %}
-{% include "pagination.html" with page=posts %}
+{% include "pagination.html" with page=page_obj %}
 {% endblock %}
