@@ -18,7 +18,7 @@ created with urlpatterns on blog/urls.py that call the function post_detail pres
         </a>
     </h2>
 <p class="date">
-    Published {{ post.publish }} by {{ post.author }}
+    Published {{ post.publish }} by {{ post.author }} about {{post.tags.all|join:", "}} with last modification {{post.updated}}
 </p>
     {{post.body|truncatewords:40|linebreaks}}
 <p class="tags">

@@ -1,4 +1,5 @@
-{% load static %} 
+{% load blog_tags %} 
+{% load static %}
 <!--
 This HTML file creates the base html template that will be called in others html files.
 All information with {} represents variables or commands that are created by django scripts and are renderized on HTML file
@@ -16,8 +17,14 @@ All information with {} represents variables or commands that are created by dja
     {% endblock %}
 </div>
 <div id="sidebar">
-    <h2>Blog de Teste</h2>
-    <p>Ta rolando pessoal</p>
-</div>
+    <h2>BasicBlog</h2>
+    <p>BasicBlog é um blog de teste, criado para estudar o framework django, na versão 3.
+      <p>
+          O blog conta com {% total_posts %} posts até o momento
+      </p>
+      <h3>Últimos Posts</h3>
+      {% show_latest_posts 3 %}
+    </ul>
+  </div>
 </body>
 </html>

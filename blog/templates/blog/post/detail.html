@@ -4,14 +4,22 @@
 
 {% block content %}
 
-	<h1>{{ post.tile  }}</h1>
+	<h1>{{ post.title  }}</h1>
 	
 <p class="date">
-    Published {{ post.publish }} by {{ post.author }}
+    Published {{ post.publish }} by {{ post.author }} about {{post.tags.all|join:", "}} with last modification {{post.updated}}
 </p>
 {{post.body|linebreaks}}
 <p class="tags"> Tags: {{post.tags.all|join:", "}}</p>
 
+<h2>Posts similares</h2>
+{% for post in similar_posts %}
+<p>
+    <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+</p>
+{% empty %}
+Não tem posts similares
+{% endfor %}
 {% with comments.count as total_comments %}
 <h2>
     {{ total_comments }} comment {{ total_comments|pluralize }}
