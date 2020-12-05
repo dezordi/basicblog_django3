@@ -1,0 +1,20 @@
+{% load static %}
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8"/>
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
+	<title>{% block title %}{% endblock %}</title>
+	<link href="{% static "css/blog.css" %}" rel="stylesheet">
+	<script src="scripts/seu-script.js"></script>
+</head>
+<body>
+<div id="content">
+    {% block content %}
+    {% endblock %}
+</div>
+<div id="sidebar">
+    <h2>Blog de Teste</h2>
+    <p>Ta rolando pessoal</p>
+</div>
+</body>
+</html>
