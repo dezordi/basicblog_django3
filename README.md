@@ -1,6 +1,6 @@
 # BasicBlog with Django3
 
-This repository store all files emcompassing the Django framework for basic blog application, the basic structure was retrivied following the tutorial of [nETSETOS](https://www.youtube.com/channel/UC7dD1bOWXiJH3lJLsTInxOQ). 
+This repository store all files emcompassing the Django framework for basic blog application, the basic structure was constructed following the tutorial of [nETSETOS](https://www.youtube.com/channel/UC7dD1bOWXiJH3lJLsTInxOQ). 
 
 ## Web application
 How the blog works can be seen in this [video](https://www.youtube.com/watch?v=a55qXRkWlug&ab_channel=filipezimmer).
