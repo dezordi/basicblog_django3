@@ -38,8 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    #local apps
     'blog.apps.BlogConfig', #load our blog application configuration
     'taggit', #to use tags in our blog
+
+    #user apps
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -135,4 +138,5 @@ AUTHENTICATION_BACKENDS = [
 
 SITE_ID = 1
 LOGIN_REDIRECT_URL = "/blog"
+LOGOUT_REDIRECT_URL = ""
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

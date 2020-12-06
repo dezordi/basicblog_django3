@@ -3,6 +3,7 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 from django.urls import reverse
 from taggit.managers import TaggableManager
+from django.conf import settings
 
 class PublishedManager(models.Manager): #creating class to filter only posts that are published
     def get_queryset(self):
@@ -11,8 +12,8 @@ class PublishedManager(models.Manager): #creating class to filter only posts tha
 class Post(models.Model): #creating all fields related to a blog post, that will can be used to filter blog content
     STATUS_CHOICES = (('draft','Draft'),('published','Published'),)
     title = models.CharField(max_length = 200)
-    slug = models.SlugField(max_length=250, unique_for_date='publish') #can be used as tags, in this case, our microorganism
-    author = models.ForeignKey(User, on_delete = models.CASCADE, related_name='blog_posts')
+    slug = models.SlugField(max_length=250, unique_for_date='publish') #generate automatic link
+    author = models.ForeignKey(User, on_delete = models.CASCADE, related_name='blog_posts') 
     body = models.TextField()
     publish = models.DateTimeField(default=timezone.now)
     created = models.DateTimeField(auto_now_add=True)

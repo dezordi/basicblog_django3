@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Post, Comment
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django.views.generic import ListView
+from django.views.generic import ListView, CreateView
 from .forms import CommentForm
 from taggit.models import Tag
 from django.db.models import Count
@@ -50,3 +50,11 @@ def post_detail(request,year,month,day,post):
                                                    'new_comment': new_comment, 
                                                    'comment_form':comment_form,
                                                    'similar_posts':similar_posts})
+
+class AddPostView(CreateView):
+    model = Post
+    template_name = 'blog/post/add_post.html'
+    fields = ('author','status','title','slug','body','publish','tags')
+    def form_valid(self, form):
+        form.instance.created_by = self.request.user
+        return super().form_valid(form)
