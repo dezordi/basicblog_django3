@@ -30,7 +30,7 @@ Não tem posts similares
     <p class="info">
         Comment {{ forloop.counter }} by {{ comment.nome }} {{ comment.created }}
     </p>
-    {{ comment.body|linebreaks }}
+    {{ comment.texto|linebreaks }}
 </div>
 {% empty %}
 <p>Essa postagem ainda não tem comentários.</p>

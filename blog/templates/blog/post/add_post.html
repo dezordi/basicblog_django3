@@ -1,15 +1,25 @@
 {% extends "blog/base.html" %}
+{% load widget_tweaks %}
 
-{% block title %} <title>Novo Post</title> {% endblock %}
+
+{% block title %} Novo Post {% endblock %}
 
 {% block content %}
 
 <h1>Nova Postagem</h1>
 
-<form method="post">
-    {{ form.as_table }}
-    {% csrf_token %}
-    <p><input type="submit" value="Post"></p>
-</form>
-
+{% if user.is_authenticated %}
+    <form method="post">
+        {% csrf_token %}
+        {% for field in form.visible_fields %}
+        <div class="form-group">
+        {{ field.label_tag }}
+        {% render_field field class="form-control" %}
+        </div>
+        {% endfor %}
+        <p><input type="submit" value="Post"></p>
+    </form>
+{% else %}
+    <p>Você precisa estar logado para postar!</p>
+{% endif %}
 {% endblock %}

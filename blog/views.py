@@ -54,7 +54,7 @@ def post_detail(request,year,month,day,post):
 class AddPostView(CreateView):
     model = Post
     template_name = 'blog/post/add_post.html'
-    fields = ('author','status','title','slug','body','publish','tags')
+    fields = ('author','status','title','body','publish','tags')
     def form_valid(self, form):
         form.instance.created_by = self.request.user
         return super().form_valid(form)

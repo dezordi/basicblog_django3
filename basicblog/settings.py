@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
@@ -140,3 +141,4 @@ SITE_ID = 1
 LOGIN_REDIRECT_URL = "/blog"
 LOGOUT_REDIRECT_URL = ""
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+FILTERS_DISABLE_HELP_TEXT = True

@@ -10,7 +10,14 @@ All information with {} represents variables or commands that are created by dja
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
     <title>{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-	<link href="{% static "css/blog.css" %}" rel="stylesheet">
+    <link href="{% static "css/blog.css" %}" rel="stylesheet">
+    <style>
+
+        .helptext{
+          visibility: hidden;
+        }
+        
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-inverse">
