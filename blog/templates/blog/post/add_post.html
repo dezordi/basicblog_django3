@@ -13,12 +13,24 @@
         {% csrf_token %}
         {% for field in form.visible_fields %}
         <div class="form-group">
+        {% if field.name == "author" %}
+        {{ field.label_tag }}
+        {% render_field field value=user.id class="form-control" %}
+        {% else %}
         {{ field.label_tag }}
         {% render_field field class="form-control" %}
+        {% endif %}
         </div>
         {% endfor %}
         <p><input type="submit" value="Post"></p>
     </form>
+    <script>
+        var name = "{{ user.id }}";
+        function setSelectValue (id, val) {
+            document.getElementById(id).value = val;
+        }
+        setSelectValue('id_author', name);
+    </script>
 {% else %}
     <p>Você precisa estar logado para postar!</p>
 {% endif %}
