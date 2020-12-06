@@ -16,4 +16,4 @@ This blog was created in a conda enviroment with the following dependencies:
 - [sqlparse==0.4.1](https://pypi.org/project/sqlparse/)
 
 ## Disclaimer
-The base code was originally create by netsetos and the complete code with complementary functions were present [here](https://github.com/netsetos/blog_site). I had picked some structures, studied the code, implemented a bootstrap template and a function to work with multi users.
+The base code of general blog structure (posts fields, comment and tag functions) was originally create by netsetos and the complete code with complementary functions were present [here](https://github.com/netsetos/blog_site). I had picked some structures, studied the code, implemented a bootstrap template and the functions to work with multi users.
